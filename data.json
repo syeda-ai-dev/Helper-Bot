@@ -1,0 +1,128 @@
+{
+    "site": {
+      "name": "Movement Lab",
+      "base_url": "https://www.movementlab.lt",
+      "main_menu": [
+        { "title": "Home",          "path": "/" },
+        { "title": "Pricing",       "path": "/pricing" },
+        { "title": "Schedule",      "path": "/schedule" },
+        { "title": "About",         "path": "/about-4" },
+        { "title": "Testimonials",  "path": "/testimonials" },
+        { "title": "Personal Trainers", "path": "/#our-team" },
+        { "title": "Our Classes",   "path": "/our-classes" },
+        { "title": "Booty Camp",    "path": "/copy-of-boot-y-camp" },
+        { "title": "Groups",        "path": "/groups" },
+        { "title": "Blog",          "path": "/blog" }
+      ],
+      "footer_links": [
+        { "title": "Contact Us",    "path": "/#footer-contact" },
+        { "title": "Privacy Policy","path": "/privacy-policy" },
+        { "title": "Terms of Use",  "path": "/terms-of-service" }
+      ]
+    },
+    "pages": {
+      "home": {
+        "sections": [
+          {
+            "id": "intro",
+            "headline": "The Best of Both Worlds",
+            "content": "Small-group personal training (3–6 people) combining group energy with top coaching."
+          },
+          {
+            "id": "benefits",
+            "items": ["Longevity", "Fitness", "Self-Confidence", "Health", "Activity", "Appearance", "Energy"]
+          },
+          {
+            "id": "register",
+            "cta": "REGISTER!",
+            "form": { "fields": ["Name", "Email", "Phone"], "submit_label": "Submit" }
+          }
+        ]
+      },
+      "pricing": {
+        "membership_plans": [
+          { "id": "plan-4",  "sessions": 4,  "price_eur": 150, "frequency": "1×/week" },
+          { "id": "plan-8",  "sessions": 8,  "price_eur": 250, "frequency": "2×/week" },
+          { "id": "plan-10", "sessions": 10, "price_eur": 280, "frequency": "2–3×/week" },
+          { "id": "plan-12", "sessions": 12, "price_eur": 310, "frequency": "3×/week" },
+          { "id": "plan-96", "sessions": 96, "price_eur": 2300, "frequency": "2×/week", "validity": "1 year" }
+        ]
+      },
+      "schedule": {
+        "filters": ["Service", "Trainer", "Date"],
+        "booking_rules": {
+          "min_advance": "1h",
+          "cancel_deadline": "8h"
+        }
+      },
+      "about": {
+        "sections": [
+          { "id": "our_story", "content": "Founded 2019 in Vilnius, we combine expert coaching with small groups." },
+          { "id": "apps",
+            "items": [
+              { "name": "Fit by Wix", "purpose": "Class booking", "platforms": ["iOS","Android"], "store_links": { "ios":"https://apps.apple.com/us/app/fit-by-wix/id1552621043", "android":"https://play.google.com/store/apps/details?id=com.wix.fitness" } },
+              { "name": "Kisi",       "purpose": "Studio access",   "platforms": ["iOS","Android"], "store_links": { "ios":"https://apps.apple.com/us/app/kisi/id687291321",       "android":"https://play.google.com/store/apps/details?id=de.kisi.android" } }
+            ]
+          },
+          { "id": "benefits", "items": ["Towels & Showers","Coffee","Flexible Schedule","Small Classes"] }
+        ]
+      },
+      "testimonials": {
+        "entries": [
+          { "author": "Ivona Skirtun",  "text": "Super supportive coaches and fun programs!" },
+          { "author": "Nerijus B",      "text": "Best functional training in Vilnius." },
+          { "author": "Rasma Saule",    "text": "Professional trainers, cozy space." },
+          { "author": "Gintare",        "text": "Friendly community and great results." }
+        ]
+      },
+      "our_classes": {
+        "consultation": {
+          "type": "Online",
+          "duration_min": 30,
+          "price": "Free",
+          "topics": ["Goals","Nutrition","Sleep","Stress","Habits","Lifestyle"]
+        }
+      },
+      "booty_camp": {
+        "description": "60 min glute-focused small-group workout",
+        "formats": [
+          { "level": "Advanced", "slot": "Sunday 11:30" },
+          { "level": "Start",    "slot": "Sunday 13:00" }
+        ]
+      },
+      "groups": {
+        "community": { "type": "Public", "member_count": 115 }
+      },
+      "blog": {
+        "posts": [] 
+      }
+    },
+    "user_account": {
+      "menu": [
+        { "title": "Dashboard", "path": "/account/dashboard" },
+        { "title": "Settings",  "path": "/account/settings" },
+        { "title": "Log Out",   "path": "/account/logout" }
+      ],
+      "settings": {
+        "profile": {
+          "path": "/account/settings/profile",
+          "fields": ["Full Name","Email","Phone"],
+          "avatar": {
+            "path": "/account/settings/profile/avatar",
+            "action": "upload",
+            "accepted_formats": ["jpg","png","gif"],
+            "max_size_mb": 5
+          }
+        },
+        "notifications": {
+          "path": "/account/settings/notifications",
+          "options": ["Email Alerts","SMS Reminders","App Push"]
+        },
+        "password": {
+          "path": "/account/settings/password",
+          "fields": ["Current Password","New Password","Confirm New Password"]
+        }
+      }
+    }
+  }
+  
