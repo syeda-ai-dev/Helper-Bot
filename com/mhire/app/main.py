@@ -1,25 +1,27 @@
-import time, logging
-
+import logging
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
-from com.mhire.app.common.network_responses import (NetworkResponse, HTTPCode)
-from mhire.com.app.services.helper_bot.helper_bot_router import router as chat_router
+from com.mhire.app.services.helper_bot.helper_bot_router import router as chat_router
+from com.mhire.app.config.config import Config
 
-# Configure logging with proper format
+# Configure logging
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(name)s - %(message)s',
     handlers=[logging.StreamHandler()]
 )
 
+logger = logging.getLogger(__name__)
+
 app = FastAPI(
-    title=settings.APP_NAME,
+    title="FixConnect",
     description="A helper bot API for guiding users through the system",
     version="1.0.0",
 )
 
+# CORS middleware
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -28,35 +30,33 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Register routers
+app.include_router(chat_router)
+
 # Health check endpoint
 @app.get("/health", response_class=JSONResponse)
-async def health_check(http_request: Request):
+async def health_check(request: Request):
     """Health check endpoint"""
-    start_time = time.time()
-    return NetworkResponse().success_response(
-        http_code=HTTPCode.SUCCESS,
-        message="Health check successful",
-        data={
+    try:
+        # Initialize config to check configuration
+        config = Config()
+        
+        return {
             "status": "healthy",
-            "message": "App is up and running."
-        },
-        resource=http_request.url.path,
-        start_time=start_time
-    )
+            "message": "App is up and running",
+            "path": request.url.path
+        }
+    except Exception as e:
+        logger.error(f"Health check failed: {str(e)}")
+        raise
 
 # Root endpoint
 @app.get("/", response_class=JSONResponse)
-async def root(http_request: Request):
+async def root(request: Request):
     """Root endpoint"""
-    start_time = time.time()
-    return NetworkResponse().success_response(
-        http_code=HTTPCode.SUCCESS,
-        message="Root endpoint data",
-        data={
-            "name": "FixConnect",
-            "version": "1.0.0",
-            "description": "AI-powered Helper-bot"
-        },
-        resource=http_request.url.path,
-        start_time=start_time
-    )
+    return {
+        "name": "FixConnect",
+        "version": "1.0.0",
+        "description": "AI-powered Helper-bot",
+        "path": request.url.path
+    }

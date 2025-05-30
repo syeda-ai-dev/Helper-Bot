@@ -6,3 +6,8 @@ python-dotenv
 aiohttp
 python-multipart
 openai
+langchain
+langchain_community
+langchain-openai
+langchain-core
+motor
